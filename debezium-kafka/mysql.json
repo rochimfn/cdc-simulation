@@ -1,0 +1,19 @@
+{
+  "name": "cdc-person-connector",  
+  "config": {  
+    "connector.class": "io.debezium.connector.mysql.MySqlConnector",
+    "tasks.max": "1",  
+    "topic.prefix": "dbz",  
+    "database.hostname": "mysql",  
+    "database.port": "3306",
+    "database.user": "dbz",
+    "database.password": "password",
+    "database.server.id": "1",  
+    "database.server.name": "docker_mysql_8",  
+    "database.include.list": "cdc_source",  
+    "database.history.kafka.bootstrap.servers": "kafka:9092",  
+    "database.history.kafka.topic": "schema-changes.cdc_source",
+    "table.include.list": "cdc_source.person",
+    "include.schema.changes": false
+  }
+}
